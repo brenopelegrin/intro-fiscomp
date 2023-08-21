@@ -1,0 +1,8 @@
+{
+    "[FortranFreeForm]": {
+        "editor.tabSize": 3
+    },
+    "[FortranFixedForm]": {
+        "editor.tabSize": 3
+    }
+}

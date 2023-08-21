@@ -1,10 +1,10 @@
       program MenoresNumeros
 c     Programa para ordenar uma lista em ordem crescente e mostrar os
 c     M menores numeros, usando um tamanho pré-fixado para o arquivo
-      dimension vetor(1000)
-      write(*,*) "Quantidade N de numeros a serem lidos:"
-      read(*,*) n
-      write(*,*) "Quantos M menores números você quer ver na tela?"
+      parameter(N = 1000)
+      dimension vetor(N)
+      write(*,*) "Quantidade N de numeros a serem lidos:", N
+      write(*,*) "Quantos M menores números você quer na saída?"
       read(*,*) m
 c     Lê arquivo com números
       open(unit=3, file='input.data', status='old')

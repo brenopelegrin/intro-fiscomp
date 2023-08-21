@@ -2,7 +2,7 @@
       real, dimension(:), allocatable :: vetor
       write(*,*) "Quantidade N de numeros a serem lidos:"
       read(*,*) n
-      write(*,*) "Quantos M menores números você quer ver na tela?"
+      write(*,*) "Quantos M menores números você quer na saída?"
       read(*,*) m
 c     Aloca espaço na memória e lê arquivo com números
       allocate(vetor(n))
