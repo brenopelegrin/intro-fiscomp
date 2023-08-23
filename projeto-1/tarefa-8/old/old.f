@@ -1,6 +1,6 @@
       program EsferaGamma
          real, dimension(:), allocatable :: vetor
-         pi = 4.D0*DATAN(1.D0)
+         pi = 4.0e0*atan(1.0e0)
          write(*,*) "Digite o numero de dimensões d e o raio R:"
          read(*,*) idim, r
          allocate(vetor(idim))

@@ -1,0 +1,5 @@
+Aparentemente tem algum problema com o algoritmo.
+O .f de dupla precisão só é igual ao dlog(x) até a 8ª casa.
+Precisa rever ambos simples e dupla precisão.
+
+Precisa implementar convergência para qualquer número.

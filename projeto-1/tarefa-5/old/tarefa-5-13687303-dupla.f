@@ -19,5 +19,5 @@ c        sum( (1/n)*(1-x)^n)_1 ^infty
          write(*,*) "ln(", x, ") de precisão dupla: ", anovo
          write(*,*) "ln(", x, ") de precisão dupla do fortran: ", 
      &dlogfortran
-         write(*,*) "Diferença: ", abs(dlogfortran-anovo)
+      write(*,*) "Diferença: ", abs(dlogfortran-anovo)
       end program
