@@ -1,8 +1,0 @@
-Precisa refazer o algoritmo para ordenar apenas os N primeiros numeros!
-Só pode usar alocação estática!
-
-Algoritmo novo:
-
-1. Encontra o mínimo global da lista e adiciona ao arquivo out.
-2. Deleta o mínimo global da lista.
-3. Repete (N vezes)

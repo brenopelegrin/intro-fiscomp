@@ -11,14 +11,14 @@ c     define-se um valor máximo de tamanho para o vetor.
          read(*,*) m
 c     Lê arquivo de input e coloca dentro de uma lista
          ilinhas = 0
-         open(unit=50, file='input.data', status='old')
+         open(unit=50, file='entrada-3-13687303', status='old')
          do
             read(50, *, end=10) alista(ilinhas+1)
             ilinhas = ilinhas + 1
          end do
  10      close(unit=50)
 c     Ordena os M primeiros e salva em um arquivo de output
-         open(unit=51, file='output.data', status='new')
+         open(unit=51, file='saida-3-13687303', status='new')
          do i=1, m, 1
             amenor = alista(1)
             do j=i+1, ilinhas, 1
