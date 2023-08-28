@@ -21,7 +21,7 @@ c     Ordena os M primeiros e salva em um arquivo de output
          open(unit=51, file='output.data', status='new')
          do i=1, m, 1
             amenor = alista(1)
-            do j=1, ilinhas, 1
+            do j=i+1, ilinhas, 1
                if (alista(j) < amenor) then
                   aux = amenor
                   amenor = alista(j)

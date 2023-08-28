@@ -25,6 +25,7 @@ c     Iremos decompor ln(x) em ln(x/2*n) + n*ln(2) até que x/2*n < 2
                iMult = iMult + 1
                goto 10
             else
+               write(*,*) x
                aLn = fLnSerie(x, eprec) + iMult*aLn2
             end if
          end if
