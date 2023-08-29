@@ -4,9 +4,11 @@ c     Aluno: Breno Henrique Pelegrin da Silva (13687303)
          dimension v1(3)
          dimension v2(3)
          dimension vetorial(3)
-         write(*,*) "Digite as componentes x,y,z do vetor v1:"
+         write(*,100)
+ 100     format("Digite as componentes x,y,z do vetor v1:", $)
          read(*,*) v1
-         write(*,*) "Digite as componentes x,y,z do vetor v2:"
+         write(*,101)
+ 101     format("Digite as componentes x,y,z do vetor v2:", $)
          read(*,*) v2
 c     Calcula o produto vetorial v1 x v2
          vetorial(1) = v1(2)*v2(3) - v2(2)*v1(3) ! i*(y1*z2 - y2*z1)
