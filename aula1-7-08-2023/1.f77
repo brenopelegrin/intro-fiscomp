@@ -1,2 +1,0 @@
-program first
-end program

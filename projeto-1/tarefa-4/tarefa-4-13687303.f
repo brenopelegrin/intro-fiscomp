@@ -4,7 +4,7 @@ c     Aluno: Breno Henrique Pelegrin da Silva (13687303)
          write(*,100)
  100     format("Digite um inteiro N: ", $)
          read(*,*) n
-         open(unit=50, file='output.data', status='new')
+         open(unit=50, file='saida-4-13687303', status='new')
 c     Se n <= 1, não existem primos.
          if (n .gt. 1) then
             iatual = 2

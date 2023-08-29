@@ -1,5 +1,5 @@
       program EsferaGamma
-c     Tarefa 7 (precisão simples) - Intro. Fiscomp - Prof. Alcaraz
+c     Tarefa 7 - Intro. Fiscomp - Prof. Alcaraz
 c     Aluno: Breno Henrique Pelegrin da Silva (13687303)
 c     Como não é permitido usar alocação dinâmica, então
 c     define-se um valor máximo de tamanho para o vetor.
@@ -10,7 +10,7 @@ c     Define os valores iniciais da função gamma(d/2 + 1)
 c     do denominador da equação de volume
          vetor(0) = 1
          vetor(1) = 0.5e0*sqrt(pi)
-         open(unit=50, file='dimensoes-esferas.dat', status='new')
+         open(unit=50, file='dimensoes-esferas', status='new')
          write(*,100)
  100     format("Digite o numero de dimensões d e o raio R: ", $) 
          read(*,*) idim, r
