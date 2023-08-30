@@ -19,6 +19,7 @@ c     Lê arquivo de input e coloca dentro de uma lista
  10      close(unit=50)
 c     Ordena os M primeiros e salva em um arquivo de output
          open(unit=51, file='saida-3-13687303', status='new')
+         write(51, *) "M", m  
          do i=1, m, 1
             amenor = alista(1)
             do j=i+1, ilinhas, 1
