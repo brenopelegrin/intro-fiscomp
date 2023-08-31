@@ -9,20 +9,12 @@ c     Aluno: Breno Henrique Pelegrin da Silva (13687303)
          if (x .le. 0.0e0) then
             write(*,*) "Erro: ln(x) não está definido para x <= 0."
             call exit()
-         else if (x .le. 2.0e0) then
+         else if (x .le. 1.0d0) then
             aLn = fLnSerie(x)
-         else if (x .gt. 2.0e0) then
-            aLn2 = fLnSerie(2.0e0)
-            iMult = 0
-c     Loop while( x >= 2.0)
-c     Iremos decompor ln(x) em ln(x/2*n) + n*ln(2) até que x/2*n < 2
- 10         if (x .gt. 2.0e0) then
-               x = x/2.0e0
-               iMult = iMult + 1
-               goto 10
-            else
-               aLn = fLnSerie(x) + iMult*aLn2
-            end if
+         else if (x .gt. 1.0d0) then
+c     Como a série só converge para x entre 0 e 2, podemos fazer
+c     -ln(1/x) = ln(x), já que 1/x < 1 quando x > 1
+            aLn = -1*fLnSerie(1/x)
          end if
 
          diff = abs(aLn - aLnFortran)
