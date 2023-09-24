@@ -1,6 +1,6 @@
       program Andarilho
          parameter (iseed = 123)
-         parameter (nandarilhos = 25000)
+         parameter (nandarilhos = 100000)
          parameter (mpassos = 1000)
          dimension ihist(-mpassos:mpassos)
          character fname*15
@@ -40,6 +40,7 @@
             do i=-mpassos, mpassos, 1
                write(50,*) i, ihist(i)
             end do
+            close(unit=50)
          end do
 
       end program
