@@ -1,15 +1,15 @@
-      program Andarilho2D
+      program AndarilhoEntropia
          parameter (iseed = 123)
          parameter (nand = 100)
          parameter (lado = 10)
          parameter (mpassos = 1500)
-         dimension rxand(nand)
-         dimension ryand(nand)
+         dimension irxand(nand)
+         dimension iryand(nand)
 
          call srand(iseed)
          do i=1, nand, 1
-            rxand(i) = 0
-            ryand(i) = 0
+            irxand(i) = 0
+            iryand(i) = 0
          end do
 
          open(50, file='entropia.dat')
@@ -18,29 +18,41 @@
                prob = rand()
                if(prob .lt. 0.25e0) then
                   ! esquerda x
-                  rxand(j) = rxand(j) - 1
+                  irxand(j) = irxand(j) - 1
                end if
                if(prob .ge. 0.25e0 .and. prob .lt. 0.5e0) then
                   ! direita x
-                  rxand(j) =r xand(j) + 1
+                  irxand(j) = irxand(j) + 1
                end if
                if(prob .gt. 0.5e0 .and. prob .lt. 0.75e0) then
                   ! esquerda y
-                  ryand(j) = ryand(j) - 1
+                  iryand(j) = iryand(j) - 1
                end if
                if(prob .ge. 0.75e0 .and. prob .lt. 1.0e0) then
                   ! direita y
-                  ryand(j) = ryand(j) + 1
+                  iryand(j) = iryand(j) + 1
                end if
+            end do
+
+            ixmin = 0
+            ixmax = 0
+            iymin = 0
+            iymax = 0
+
+            do j=1, nand, 1
+               if(irxand(j) .lt. ixmin) ixmin = irxand(j)
+               if(irxand(j) .gt. ixmax) ixmax = irxand(j)
+               if(iryand(j) .lt. iymin) iymin = iryand(j)
+               if(iryand(j) .gt. iymax) iymax = iryand(j)
             end do
             
             s = 0.0e0
-            do ix=-mpassos, mpassos, lado
-               do iy=-mpassos, mpassos, lado
+            do ix=ixmin, ixmax, lado
+               do iy=iymin, iymax, lado
                   icount = 0
                   do j=1, nand, 1
-                     if( rxand(j) .gt. ix .and. rxand(j) .lt. ix+lado
-     &.and. ryand(j) .gt. iy .and. ryand(j) .lt. iy+lado) then
+                     if( irxand(j) .gt. ix .and. irxand(j) .lt. ix+lado
+     &.and. iryand(j) .gt. iy .and. iryand(j) .lt. iy+lado) then
                         icount = icount + 1
                      end if
                   end do

@@ -57,7 +57,7 @@
  100        format("pos-m-", (I0), "-n-", (I0), ".dat")
             open(50, file=fname)
             do i=1, nand, 1
-               write(50, *) rxand(i), ryand(j)
+               write(50, *) rxand(i), ryand(i)
             end do
             close(50)
          end do

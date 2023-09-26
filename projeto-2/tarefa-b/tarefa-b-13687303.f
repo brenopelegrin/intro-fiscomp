@@ -3,7 +3,7 @@
          parameter (nandarilhos = 100000)
          parameter (mpassos = 1000)
          dimension ihist(-mpassos:mpassos)
-         character fname*15
+         character fname*20
          call srand(iseed)
          
          do ifrac=2, 5, 1
@@ -19,10 +19,10 @@
                   aleatorio = rand()
                   if(aleatorio .lt. p) then
                      ! esquerda
-                     ix = ix + 1
+                     ix = ix - 1
                   else
                      ! direita
-                     ix = ix - 1
+                     ix = ix + 1
                   end if
                end do
                xsoma = xsoma + ix
@@ -35,7 +35,7 @@
 
             !gera arquivo de histograma
             write(fname, 100) ifrac
- 100        format("hist-1-" (I0) ".dat")
+ 100        format("hist-p1over" (I0) ".dat")
             open(unit=50, file=fname) 
             do i=-mpassos, mpassos, 1
                write(50,*) i, ihist(i)
