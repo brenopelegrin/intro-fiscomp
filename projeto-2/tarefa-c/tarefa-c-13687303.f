@@ -48,6 +48,7 @@
             d2 =  r2avg - (ravgx**2 + ravgy**2)
             write(*,*) "------------------------"
             write(*,*) "mpassos =", mpassos
+            write(*,*) "nand =", nand
             write(*,*) "<x> =", xsoma/nand
             write(*,*) "<y> =", ysoma/nand
             write(*,*) "<(rx, ry)> =", ravgx, ", ", ravgy

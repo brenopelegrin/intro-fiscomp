@@ -1,4 +1,4 @@
-      program tarefaA
+      program Distribuicao
          write(*,100)
  100     format("Digite o número N: ", $)
          read(*,*) n

@@ -1,7 +1,5 @@
 rm tarefa-b-13687303.exe
-rm hist-1-2.dat
-rm hist-1-3.dat
-rm hist-1-4.dat
-rm hist-1-5.dat
+rm ./*.dat
 gfortran tarefa-b-13687303.f -o tarefa-b-13687303.exe
-./tarefa-b-13687303.exe
+echo "\n=== Finished compiling ===\n"
+time ./tarefa-b-13687303.exe
