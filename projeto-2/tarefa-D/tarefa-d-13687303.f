@@ -1,18 +1,16 @@
       program AndarilhoEntropia
          parameter (iseed = 123)
-         parameter (nand = 100)
+         parameter (nand = 1000)
          parameter (lado = 10)
-         parameter (mpassos = 1500)
+         parameter (mpassos = 2000)
          dimension irxand(nand)
          dimension iryand(nand)
 
          call srand(iseed)
-         do i=1, nand, 1
-            irxand(i) = 0
-            iryand(i) = 0
-         end do
+         irxand = 0
+         iryand = 0
 
-         open(50, file='entropia.dat')
+         open(50, file='saida-d-13687303.dat')
          do i=1, mpassos, 1
             do j=1, nand, 1
                prob = rand()
@@ -40,6 +38,8 @@
             iymax = 0
 
             do j=1, nand, 1
+c              O intuito disso é otimizar o programa, encontrando
+c              o limite máximo onde devemos percorrer o reticulado
                if(irxand(j) .lt. ixmin) ixmin = irxand(j)
                if(irxand(j) .gt. ixmax) ixmax = irxand(j)
                if(iryand(j) .lt. iymin) iymin = iryand(j)
@@ -49,6 +49,8 @@
             s = 0.0e0
             do ix=ixmin, ixmax, lado
                do iy=iymin, iymax, lado
+c                 Percorre cada quadrado i do reticulado e conta
+c                 o número de andarilhos, calculando S_i
                   icount = 0
                   do j=1, nand, 1
                      if( irxand(j) .gt. ix .and. irxand(j) .lt. ix+lado

@@ -1,22 +1,22 @@
       program Andarilho2D
          parameter (iseed = 123)
-         parameter (nand = 1000)
-         dimension rxand(nand)
-         dimension ryand(nand)
+         parameter (mand = 1000)
+         dimension rxand(mand)
+         dimension ryand(mand)
 
          character fname*50
          call srand(iseed)
 
          do l=1, 6, 1
-            mpassos = 10**l
+            npassos = 10**l
             xsoma = 0
             ysoma = 0
             x2soma = 0
             y2soma = 0
-            do j=1, nand, 1
+            do j=1, mand, 1
                ix = 0
                iy = 0
-               do i=1, mpassos, 1
+               do i=1, npassos, 1
                   prob = rand()
                   if(prob .lt. 0.25e0) then
                      ! esquerda x
@@ -42,24 +42,23 @@
                rxand(j) = ix
                ryand(j) = iy
             end do
-            ravgx = real(xsoma)/nand
-            ravgy = real(ysoma)/nand
-            r2avg = (real(x2soma)/nand + real(y2soma)/nand)
+            ravgx = real(xsoma)/mand
+            ravgy = real(ysoma)/mand
+            r2avg = (real(x2soma)/mand + real(y2soma)/mand)
             d2 =  r2avg - (ravgx**2 + ravgy**2)
-            write(*,*) "------------------------"
-            write(*,*) "mpassos =", mpassos
-            write(*,*) "nand =", nand
-            write(*,*) "<x> =", xsoma/nand
-            write(*,*) "<y> =", ysoma/nand
+            write(*,*) "==="
+            write(*,100) l
+ 100        format("npassos = 1E+" (I0))
             write(*,*) "<(rx, ry)> =", ravgx, ", ", ravgy
             write(*,*) "<(rx,ry)^2> =", r2avg
             write(*,*) "Delta^2 =", d2
-            write(fname, 100) mpassos, nand
- 100        format("pos-m-", (I0), "-n-", (I0), ".dat")
+            write(fname, 101) npassos
+ 101        format("saida-c-13687303-1e", (l), ".dat")
             open(50, file=fname)
-            do i=1, nand, 1
+            do i=1, mand, 1
                write(50, *) rxand(i), ryand(i)
             end do
             close(50)
          end do
+         write(*,*) "==="
       end program
