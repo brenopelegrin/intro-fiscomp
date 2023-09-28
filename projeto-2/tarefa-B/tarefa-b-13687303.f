@@ -15,7 +15,7 @@
                ix = 0
                do i=1, npassos, 1
                   aleatorio = rand()
-                  if(aleatorio .lt. p) then
+                  if(aleatorio .lt. (1-p)) then
                      ! x esquerda
                      ix = ix - 1
                   else
