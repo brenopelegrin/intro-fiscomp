@@ -36,7 +36,7 @@
             ixmax = 0
             iymin = 0
             iymax = 0
-
+            
             do j=1, nand, 1
 c              O intuito disso é otimizar o programa, encontrando
 c              o limite máximo onde devemos percorrer o reticulado
