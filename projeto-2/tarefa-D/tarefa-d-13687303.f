@@ -13,8 +13,8 @@
          open(50, file='saida-d-13687303.dat')
          do i=1, mpassos, 1
             do j=1, nand, 1
-               prob = rand()
-               if(prob .lt. 0.25e0) then
+              prob = rand()
+            if(prob .lt. 0.25e0) then
                   ! esquerda x
                   irxand(j) = irxand(j) - 1
                end if
