@@ -13,7 +13,7 @@
  101        format("saida-c-13687303-n1e", (I0), ".dat")
             open(50, file=fname)
             do j=1, mand, 1
-             ix = 0
+             ix = 0  
              iy = 0
               do i=1, npassos, 1
                 prob = rand()
