@@ -19,19 +19,19 @@
                do i=1, npassos, 1
                   prob = rand()
                   if(prob .lt. 0.25e0) then
-                     ! esquerda x
+                     ! -x
                      ix = ix - 1
                   end if
                   if(prob .ge. 0.25e0 .and. prob .lt. 0.5e0) then
-                     ! direita x
+                     ! +x
                      ix = ix + 1
                   end if
                   if(prob .gt. 0.5e0 .and. prob .lt. 0.75e0) then
-                     ! esquerda y
+                     ! -y
                      iy = iy - 1
                   end if
                   if(prob .ge. 0.75e0 .and. prob .lt. 1.0e0) then
-                     ! direita y
+                     ! +y
                      iy = iy + 1
                   end if
                end do
@@ -52,8 +52,8 @@
             write(*,*) "<(rx, ry)> =", ravgx, ", ", ravgy
             write(*,*) "<(rx,ry)^2> =", r2avg
             write(*,*) "Delta^2 =", d2
-            write(fname, 101) npassos
- 101        format("saida-c-13687303-1e", (l), ".dat")
+            write(fname, 101) l
+ 101        format("saida-c-13687303-n1e", (I0), ".dat")
             open(50, file=fname)
             do i=1, mand, 1
                write(50, *) rxand(i), ryand(i)
