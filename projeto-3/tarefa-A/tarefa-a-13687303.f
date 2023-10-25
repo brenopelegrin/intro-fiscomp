@@ -7,8 +7,8 @@
          h = [5.0E-1, 2.0E-1, 1.0E-1, 5.0E-2, 1.0E-2, 5.0E-3, 1.0E-3,
      &5.0E-4, 1.0E-4, 5.0E-5, 1.0E-5, 1.0E-6, 1.0E-7, 1.0E-8]
          x0 = 0.5d0
-         open(unit=50, file='diff.csv')
-         open(unit=51, file='comp.csv')
+         open(unit=50, file='saida-1-diff-13687303.csv')
+         open(unit=51, file='saida-2-comp-13687303.csv')
          write(50,100) "h", "d1s3p", "d1f2p", "d1t2p", "d1s5p", "d2s5p"
      &,"d3a5p"
          write(51,100) "h", "d1s3p", "d1f2p", "d1t2p", "d1s5p", "d2s5p"
