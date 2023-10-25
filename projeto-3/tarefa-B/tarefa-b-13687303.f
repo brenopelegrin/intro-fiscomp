@@ -10,8 +10,8 @@
          end do
          x0 = 0.0d0
 
-         open(unit=50, file='int.csv')
-         open(unit=51, file='erro.csv')
+         open(unit=50, file='saida-1-int-13687303.csv')
+         open(unit=51, file='saida-2-erro-13687303.csv')
 
          write(50,100)
          write(51,100)
