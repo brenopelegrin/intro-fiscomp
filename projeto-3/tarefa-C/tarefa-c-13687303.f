@@ -2,8 +2,13 @@
          implicit real*8 (a-h, o-z)
          x0 = -10.0d0
          e = 1e-6
-         x = xnewton(x0, 6, e)
-         write(*,*) x
+         write(*,*) 'i,', 'r1,', 'r2,', 'r3'
+         do i=1, 7, 1
+            r1n = xnewton(x0, i, e)
+            r2n = xnewton(0.0d0, i, e)
+            r3n = xnewton(10.0d0, i, e)
+            write(*,*) i-1, r1n, r2n, r3n
+         end do
       end program
 
       function f(x)
@@ -21,9 +26,9 @@
       function xnewton(x0, n, e)
          implicit real*8 (a-h,o-z)
          x = x0
-         do intercept=1, n, 1
+         do iter=1, n, 1
             xnew = x - (f(x)/diff(x))
-            if(abs(x - j) .lt. e) goto 100 
+            if(abs(x - xnew) .lt. e) goto 100 
             x = xnew
          end do
  100     xnewton = x
