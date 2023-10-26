@@ -3,8 +3,8 @@
          x0 = -10.0d0
          e = 1e-6
          open(20, file='saida-1-raizes-13687303.csv')
-         write(20,*) 'i,', 'r1n,', 'r2n,', 'r3n,', 'r1d,', 'r2d,', 'r3d'
-     &,'r1s,', 'r2s,', 'r3s'
+         write(20,*) 'i,', 'r1n,', 'r2n,', 'r3n,', 'r1d,', 'r2d,', 'r3d
+     &,','r1s,', 'r2s,', 'r3s'
          do i=1, 7, 1
             r1n = xnewton(x0, i, e)
             r2n = xnewton(0.0d0, i, e)
