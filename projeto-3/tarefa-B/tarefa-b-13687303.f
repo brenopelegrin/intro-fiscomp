@@ -25,7 +25,8 @@
             sp = spint(0.0d0, 1.0d0, n(i))
             bl = blint(0.0d0, 1.0d0, n(i))
             write(50,102) n(i), h, tr, sp, bl
-            write(51,102) n(i), h, tr, sp, bl
+            write(51,102) n(i), h, abs(tr-anlint), abs(sp-anlint), abs(
+     &bl-anlint)
  102        format(I0, ",", F24.11, ",", F24.11, ",", F24.11, "," F24.1
      &1)
          end do
