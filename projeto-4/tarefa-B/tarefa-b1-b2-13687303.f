@@ -1,7 +1,7 @@
       program TarefaB1eB2
          implicit real*8 (a-h,o-z)
          parameter (iangulos = 100)
-         parameter (idivisoes = 1000)
+         parameter (idivisoes = 5000)
          dimension theta(iangulos)
 
          pi = 4.0d0*atan(1.0d0)
@@ -13,12 +13,13 @@
          do i=1, iangulos-1, 1
             theta(i+1) = theta(i) - pi/(2*iangulos)
             periodo = 0.0d0
+            eps = 1e-3
             do j=1, 10, 1
                periodo = periodo + simulate(theta(i), 0d0, 0d0, 0d0)
             end do
             periodo = periodo/10.0d0
-            periodo_int = spint(0.0d0, pi/2.0d0, idivisoes,
-     &theta(i))*4.0d0
+            periodo_int = spint(-theta(i)+eps, theta(i)-eps, idivisoes,
+     &theta(i))*sqrt(2.0d0)+ 4*sqrt(2.0d0)*sqrt(eps/sin(theta(i)))
             periodo_apx = 2.0d0*pi*(1 + (theta(i)**2)/16.0d0)
             write(50,*) theta(i), ",", periodo, ",", periodo_int, ",",
      &periodo_apx
@@ -60,13 +61,6 @@ c           E = U + K = mgl * (1 - cos(theta)) + 0.5 * m * (w*l)^2
          end do
       end function
 
-      function funk(x, x0)
-         implicit real*8 (a-h,o-z)
-c        f(x) = 1/sqrt(1 - (sin(x0/2)*sin(x))^2 )
-         funk = 1.0d0/sqrt(1-(sin(x0/2.0d0)**2)*(sin(x)**2))
-         return
-      end function
-
       function func(x, x0)
          implicit real*8 (a-h,o-z)
          func = 1.0d0/sqrt(cos(x) - cos(x0))
@@ -75,7 +69,7 @@ c        f(x) = 1/sqrt(1 - (sin(x0/2)*sin(x))^2 )
 
       function fn(x0, n, h, b0)
          implicit real*8 (a-h,o-z)
-         fn = funk(x0 + n*h, b0)
+         fn = func(x0 + n*h, b0)
          return
       end function fn
 

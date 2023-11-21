@@ -1,6 +1,6 @@
       program TarefaB3
          implicit real*8 (a-h,o-z)
-         parameter(ipassos = 5000)
+         parameter(ipassos = 9000)
          parameter(g = 9.8d0)
          parameter(al = 9.8d0)
          parameter(m = 1.0d0)
