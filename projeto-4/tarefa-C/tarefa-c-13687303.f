@@ -1,6 +1,6 @@
       program TarefaC
          implicit real*8 (a-h,o-z)
-         parameter(ipassos = 6000)
+         parameter(ipassos = 2000)
          parameter(dt = 0.04d0)
          parameter(g = 9.8d0)
          parameter(al = 9.8d0)
