@@ -1,39 +1,35 @@
-      program TarefaB
+      program TarefaB1eB2
          implicit real*8 (a-h,o-z)
-         parameter (iangulos = 200)
-         parameter (n = 1000)
-         parameter (eps = 0.07)
+         parameter (iangulos = 100)
+         parameter (idivisoes = 1000)
          dimension theta(iangulos)
 
          pi = 4.0d0*atan(1.0d0)
          theta(1) = pi/2.0d0
 
          open(50, file='periodos.csv')
-         open(60, file='periodos_anl.csv')
          write(50,100)
- 100     format("theta,periodo")
-         write(60,101)
- 101     format("theta,periodo_anl")
-
+ 100     format("theta,periodo_sim,periodo_int,periodo_apx")
          do i=1, iangulos-1, 1
             theta(i+1) = theta(i) - pi/(2*iangulos)
             periodo = 0.0d0
             do j=1, 10, 1
                periodo = periodo + simulate(theta(i), 0d0, 0d0, 0d0)
             end do
-            periodo_anl = blint(-theta(i)+eps, theta(i)-eps, n, t0)
             periodo = periodo/10.0d0
-            write(50,*) theta(i), ",", periodo
-            write(60,*) theta(i), ",", periodo_anl
+            periodo_int = spint(0.0d0, pi/2.0d0, idivisoes,
+     &theta(i))*4.0d0
+            periodo_apx = 2.0d0*pi*(1 + (theta(i)**2)/16.0d0)
+            write(50,*) theta(i), ",", periodo, ",", periodo_int, ",",
+     &periodo_apx
          end do
          close(50)
-         close(60)
       end program
 
       function simulate(theta0, gamma, f0, omega)
          implicit real*8 (a-h,o-z)
+         parameter(ipassos = 3000)
          parameter(dt = 1e-2)
-         parameter(ipassos = 5000)
          parameter(g = 9.8d0)
          parameter(al = 9.8d0)
          parameter(m = 1.0d0)
@@ -64,28 +60,48 @@ c           E = U + K = mgl * (1 - cos(theta)) + 0.5 * m * (w*l)^2
          end do
       end function
 
-      function func(x, t0)
+      function funk(x, x0)
          implicit real*8 (a-h,o-z)
-         func = 1/(cos(x) - cos(t0))
+c        f(x) = 1/sqrt(1 - (sin(x0/2)*sin(x))^2 )
+         funk = 1.0d0/sqrt(1-(sin(x0/2.0d0)**2)*(sin(x)**2))
          return
       end function
 
-      function fn(x0, n, h, t0)
+      function func(x, x0)
          implicit real*8 (a-h,o-z)
-         fn = func(x0 + n*h, t0)
+         func = 1.0d0/sqrt(cos(x) - cos(x0))
+         return
+      end function
+
+      function fn(x0, n, h, b0)
+         implicit real*8 (a-h,o-z)
+         fn = funk(x0 + n*h, b0)
          return
       end function fn
 
-
-      function blint(a,b,n,t0)
+      function spint(a,b,n,b0)
          implicit real*8 (a-h,o-z)
-         blint=0
-         h=(b-a)/n
-         do i=0, n-4, 4
+         spint=0.0d0
+         h=(b-a)/real(n)
+         do i=1, n-1, 2
             x0=a+i*h
-            blint=blint+(2.0d0*h/45.0d0)*(7.0d0*fn(x0, 0, h, t0) + 32.0
-     &d0*fn(x0,1, h, t0) + 12.0d0*fn(x0, 2, h, t0) + 32.0d0*fn(x0, 3, h
-     &, t0) + 7.0d0*fn(x0,4, h,t0))
+            spint=spint+(h/3.0d0)*(fn(x0, 1, h, b0) + 4.0d0*fn(x0, 0, h
+     &,b0) + fn(x0,-1, h, b0))
          end do
          return
-      end function 
+      end function
+
+      function trint(a,b,n,b0)
+         implicit real*8 (a-h,o-z)
+         trint=0.0d0
+         h=(b-a)/n
+         do i=1, n-1, 2
+            x0=a + i*h
+            trint=trint+(h/2.0d0)*(fn(x0, -1, h, b0) + 2.0d0*fn(x0, 0,
+     &h, b0)+fn(x0,1,h,b0))
+         end do
+         return
+      end function
+
+
+
