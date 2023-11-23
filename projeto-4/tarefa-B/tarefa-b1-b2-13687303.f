@@ -85,17 +85,5 @@ c           E = U + K = mgl * (1 - cos(theta)) + 0.5 * m * (w*l)^2
          return
       end function
 
-      function trint(a,b,n,b0)
-         implicit real*8 (a-h,o-z)
-         trint=0.0d0
-         h=(b-a)/n
-         do i=1, n-1, 2
-            x0=a + i*h
-            trint=trint+(h/2.0d0)*(fn(x0, -1, h, b0) + 2.0d0*fn(x0, 0,
-     &h, b0)+fn(x0,1,h,b0))
-         end do
-         return
-      end function
-
 
 
