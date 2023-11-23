@@ -15,7 +15,7 @@
          f0 = 0.0d0
          dt=1e-2
 
-         open(50, file="b3_theta_t.csv")
+         open(50, file="saida-b3-13687303-theta_t.csv")
          write(50,100)
  100     format("t,theta")
 

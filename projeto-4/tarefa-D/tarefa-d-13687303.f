@@ -1,4 +1,4 @@
-      program TarefaC
+      program TarefaD
          implicit real*8 (a-h,o-z)
          parameter(ipassos = 3000)
          parameter(dt = 0.04d0)
@@ -24,7 +24,7 @@
             do j=1, iangulos, 1
 
             write(fname,100) i, j
- 100        format("d_dados_f0_", I0,"_theta0_", I0, ".csv")
+ 100        format("saida-d-13687303-dados_f0_", I0,"_theta0_", I0, ".csv")
             open(50, file=fname)
             write(50,101)
  101        format("t,theta,w")

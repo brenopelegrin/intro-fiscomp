@@ -21,7 +21,7 @@
             f0 = f0_arr(i)
 
             write(fname,100) i
- 100        format("c_dados_f0_", I0, ".csv")
+ 100        format("saida-c-13687303-dados_f0_", I0, ".csv")
             open(50, file=fname)
             write(50,101)
  101        format("t,dtheta")

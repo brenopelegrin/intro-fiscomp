@@ -7,7 +7,7 @@
          pi = 4.0d0*atan(1.0d0)
          theta(1) = pi/2.0d0
 
-         open(50, file='periodos.csv')
+         open(50, file='saida-b1-b2-13687303-periodos.csv')
          write(50,100)
  100     format("theta,periodo_sim,periodo_int,periodo_apx")
          do i=1, iangulos-1, 1

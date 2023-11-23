@@ -1,0 +1,1 @@
+for dir in ./*; do (cd "$dir" && printf "\n> Running run.sh on directory ${dir}\n\n" && ./run.sh -g); done

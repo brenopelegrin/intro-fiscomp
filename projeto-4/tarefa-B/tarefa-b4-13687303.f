@@ -26,7 +26,7 @@ c        Loop j_f0 para escolher qual f0 usar
 c        j_f0 = 1 => f0 = 0, j_f0 = 2 => f0 = 0.5 e j_f0 = 3 => f0=1.2
          do j_f0=1, 3, 1
          write(fname,100) j_f0, k_gamma
- 100     format('b4_dados_f0_', i1, '_g_', i1 ,'.csv')
+ 100     format('saida-b4-13687303-dados_f0_', i1, '_g_', i1 ,'.csv')
          open(50, file=fname)
          write(50,101)
  101     format("t,theta,w")

@@ -1,4 +1,4 @@
-      program TarefaC
+      program TarefaE
          implicit real*8 (a-h,o-z)
          parameter(ipassos = 100000)
          parameter(dt = 0.04d0)
@@ -9,7 +9,7 @@
 
          dimension t(ipassos), w(ipassos), theta(ipassos)
          dimension f0_arr(2), theta0_arr(iangulos)
-         character fname*50
+         character fname*60
 
          pi = 4.0d0*atan(1.0d0)
          gamma = 0.5d0
@@ -25,7 +25,8 @@
             do j=1, iangulos, 1
 
             write(fname,100) i, j
- 100        format("e_dados_f0_", I0,"_theta0_", I0, ".csv")
+ 100        format("saida-e-13687303-dados_f0_", I0,"_theta0_", I0,
+     &".csv")
             open(50, file=fname)
             write(50,101)
  101        format("t,theta,w")
