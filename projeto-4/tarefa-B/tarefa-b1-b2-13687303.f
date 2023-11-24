@@ -84,6 +84,3 @@ c           E = U + K = mgl * (1 - cos(theta)) + 0.5 * m * (w*l)^2
          end do
          return
       end function
-
-
-
